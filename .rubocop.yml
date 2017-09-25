@@ -1,0 +1,15 @@
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - "**/*_spec.rb"
+
+
+AllCops:
+  DisplayCopNames: true
