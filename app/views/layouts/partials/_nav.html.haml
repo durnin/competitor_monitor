@@ -1,0 +1,12 @@
+%nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+  %button.navbar-toggler.navbar-toggler-right{ 'aria-controls': 'navbar-nam',
+                                               'aria-expanded': 'false',
+                                               'aria-label': 'Toggle Nav',
+                                               'data-target': '#navbar-nam',
+                                               'data-toggle': 'collapse',
+                                               type: 'button' }
+    %span.navbar-toggler-icon
+  %a.navbar-brand{ href: '#' } Competitor Monitor
+  .collapse.navbar-collapse#navbar-nam
+    .navbar-nav
+      = nav_menu_items # helper method
