@@ -26,3 +26,5 @@
 /.idea
 
 /spec/examples.txt
+
+/coverage/*
