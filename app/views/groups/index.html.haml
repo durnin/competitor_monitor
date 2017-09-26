@@ -1,5 +1,10 @@
+- content_for :alert_messages do
+  = alert_messages(flash)
 .container
-  %table.table.table-striped.mt-5
+  .row.mt-5
+    .col
+      %button.btn.btn-primary.float-right{ type: 'button' } New Group
+  %table.table.table-striped.mt-1
     %tbody
       %tr
         %th Name

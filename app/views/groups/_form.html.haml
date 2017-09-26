@@ -1,0 +1,11 @@
+.container
+  = form_for group do |f|
+    .form-group.row
+      = f.label :name, class: 'col-2 col-form-label'
+      .col-10
+        = f.text_field :name, class: 'form-control'
+    .form-group.row
+      .col-2.float-right
+        = f.submit 'Save', class: 'btn btn-primary'
+      .col-2.float-right
+        = link_to 'Cancel', groups_path, class: 'btn btn-default'

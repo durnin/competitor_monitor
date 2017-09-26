@@ -29,7 +29,7 @@ feature "Create a group of competitor's products" do
     click_button 'New Group'
     within('#new_group') do
       fill_in 'Group Name', with: group_name
-      click_button 'Create Group'
+      click_button 'Save'
       expect(page).to have_content "Group #{group_name} successfully created"
     end
     click_link group_name # link to show the group
