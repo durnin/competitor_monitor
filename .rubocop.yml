@@ -10,6 +10,9 @@ Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - "**/*_spec.rb"
 
+Style/SymbolArray:
+  Exclude:
+      - "Gemfile"
 
 AllCops:
   DisplayCopNames: true
