@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+require 'database_cleaner'
+
 RSpec.configure do |config|
   # :no_db is a tag to use on specs that don't depend on db (to speed up tests)
-  config.before(:suite, no_db: false) do
-    require 'database_cleaner'
+  config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
 
