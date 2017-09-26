@@ -1,0 +1,9 @@
+.container
+  %table.table.table-striped.mt-5
+    %tbody
+      %tr
+        %th Name
+      - @groups.each do |group|
+        %tr
+          %td
+            = link_to group.name, group_path(group)
