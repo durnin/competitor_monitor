@@ -1,11 +1,14 @@
-.container
+.data-container
   = form_for group do |f|
-    .form-group.row
-      = f.label :name, class: 'col-2 col-form-label'
-      .col-10
-        = f.text_field :name, class: 'form-control'
-    .form-group.row
-      .col-2.float-right
-        = f.submit 'Save', class: 'btn btn-primary'
-      .col-2.float-right
-        = link_to 'Cancel', groups_path, class: 'btn btn-default'
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control', readonly: readonly
+    .row
+      .col-3.offset-3
+        - if readonly
+          = link_to 'Edit', edit_group_path(group),
+            class: 'btn btn-primary btn-block'
+        - else
+          = f.submit 'Save', class: 'btn btn-primary btn-block'
+      .col-3
+        = link_to 'Cancel', groups_path, class: 'btn btn-secondary btn-block'

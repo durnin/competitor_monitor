@@ -13,3 +13,9 @@
  */
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+
+.data-container {
+  border: solid #f7f7f9;
+  padding: 1.5rem;
+  border-width: 0.2rem;
+}
