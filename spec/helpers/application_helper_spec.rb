@@ -49,7 +49,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
       it 'generates html for success alert' do
         test_alert_messages(
-          { notice: 'This is a notice.' },
+          { 'notice': 'This is a notice.' }.with_indifferent_access,
           '<div class="alert alert-success" role="alert"><strong>This is a '\
           'notice.</strong><ul><li>error 1</li><li>error 2</li><li>error 3'\
           '</li></ul></div>'
@@ -58,7 +58,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
       it 'generates html for danger alert' do
         test_alert_messages(
-          { error: 'This is an error.' },
+          { 'error': 'This is an error.' }.with_indifferent_access,
           '<div class="alert alert-danger" role="alert"><strong>This is an '\
           'error.</strong><ul><li>error 1</li><li>error 2</li><li>error 3'\
           '</li></ul></div>'

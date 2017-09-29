@@ -19,10 +19,13 @@ module ApplicationHelper
   def alert_messages(flash, model_object = nil)
     model_errors = model_error_messages_list(model_object)
     flash.map do |key, text|
-      alert_class = if key == :notice
+      alert_class = case key
+                    when 'notice'
                       'alert alert-success'
-                    else
+                    when 'error'
                       'alert alert-danger'
+                    else
+                      'alert alert-info'
                     end
       messages_html(alert_class, text, model_errors)
     end.join.html_safe
