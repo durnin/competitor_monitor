@@ -16,3 +16,6 @@ Style/SymbolArray:
 
 AllCops:
   DisplayCopNames: true
+  Exclude:
+        - "db/**"
+        - "db/*/*"
