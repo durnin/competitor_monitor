@@ -13,15 +13,15 @@ feature "Create a group of competitor's products" do
     end
     click_button 'Create Competitor'
     expect(page).to have_content "Competitor #{competitor1[:name]}"\
-                                   'successfully added'
+                                 'successfully added'
   end
 
   given(:group_name) { Faker::Company.name }
   given(:competitor1) do
-    { name: Faker::Company.name, link: Faker::Internet.url }
+    { name: Faker::Commerce.product_name, link: Faker::Internet.url }
   end
   given(:competitor2) do
-    { name: Faker::Company.name, asin: Faker::Code.asin }
+    { name: Faker::Commerce.product_name, asin: Faker::Code.asin }
   end
 
   scenario 'creates a group with competitors' do
