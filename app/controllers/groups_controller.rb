@@ -2,24 +2,28 @@
 
 # Controller for Groups of Competitors
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show]
+  before_action :set_group, only: %i[show edit]
 
   def show; end
 
   def index
-    @groups = []
+    @groups = Group.all
   end
 
   def new
-    @group = nil # Group.new
+    @group = Group.new
+  end
+
+  def edit
+    render :new
   end
 
   def create
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to action: 'index', notice: "Group #{@group.name} "\
-        'successfully created.'
+      flash[:notice] = "Group #{@group.name} successfully created."
+      redirect_to action: 'index'
     else
       flash[:error] = 'There were some errors while trying to create the '\
         'group.'
@@ -30,7 +34,7 @@ class GroupsController < ApplicationController
   private
 
   def set_group
-    @group = nil # Group.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white

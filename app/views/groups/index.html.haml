@@ -1,14 +1,13 @@
 - content_for :alert_messages do
   = alert_messages(flash)
-.container
-  .row.mt-5
-    .col
-      %button.btn.btn-primary.float-right{ type: 'button' } New Group
-  %table.table.table-striped.mt-1
-    %tbody
+.row
+  .col
+    = link_to 'New Group', new_group_path, class: 'btn btn-primary float-right'
+%table.table.table-striped.mt-1
+  %tbody
+    %tr
+      %th Name
+    - @groups.each do |group|
       %tr
-        %th Name
-      - @groups.each do |group|
-        %tr
-          %td
-            = link_to group.name, group_path(group)
+        %td
+          = link_to group.name, group_path(group)
