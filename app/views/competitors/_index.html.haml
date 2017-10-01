@@ -1,0 +1,21 @@
+.row.mt-4
+  .col
+    %h4 Competitors
+  .col
+    = link_to 'Add Competitor', new_group_competitor_path(group),
+              class: 'btn btn-primary float-right'
+%table.table.table-striped.mt-1
+  %tbody
+    %tr
+      %th Name
+      %th Link
+      %th ASIN
+    - group.competitors.each do |competitor|
+      %tr
+        %td
+          = link_to competitor.name, competitor_path(competitor)
+        %td
+          = link_to truncate(competitor.link, length: 20), competitor.link
+        %td
+          = link_to truncate(competitor.product_asin, length: 20),
+                    asin_to_link(competitor.product_asin)

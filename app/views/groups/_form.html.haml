@@ -12,3 +12,5 @@
           = f.submit 'Save', class: 'btn btn-primary btn-block'
       .col-3
         = link_to 'Cancel', groups_path, class: 'btn btn-secondary btn-block'
+  - if group.id
+    = render 'competitors/index', group: group

@@ -15,15 +15,15 @@ class Competitor < ApplicationRecord
 
   # VALIDATIONS
   validates :link, url: { allow_blank: true, no_local: true }
-  validates :link, presence: true, unless: Proc.new do |competitor|
+  validates :link, presence: true, unless: lambda { |competitor|
     competitor.product_asin.present?
-  end
+  }
   validates :product_asin, format: { with: /\A[\dA-Z]{9}|\d{9}(X|\d)\z/,
                                      message: 'only allows ASIN format' },
                            allow_blank: true
-  validates :product_asin, presence: true, unless: Proc.new do |competitor|
+  validates :product_asin, presence: true, unless: lambda { |competitor|
     competitor.link.present?
-  end
+  }
   validate :asin_link_simultaneous_presence
   validate :max_competitors_have_not_been_reached, on: :create
 

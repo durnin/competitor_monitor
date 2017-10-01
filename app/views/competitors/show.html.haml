@@ -1,0 +1,8 @@
+- content_for :alert_messages do
+  = alert_messages(flash, @competitor)
+.row
+  .col.offset-3
+    %h2 Competitor
+.row.mt-3
+  .col-6.offset-3
+    = render 'form', competitor: @competitor, readonly: true

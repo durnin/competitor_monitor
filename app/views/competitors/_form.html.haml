@@ -1,0 +1,22 @@
+.data-container
+  = form_for competitor do |f|
+    = f.hidden_field :group_id
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control', readonly: readonly
+    .form-group
+      = f.label :link
+      = f.text_field :link, class: 'form-control', readonly: readonly
+    .form-group
+      = f.label :product_asin
+      = f.text_field :product_asin, class: 'form-control', readonly: readonly
+    .row
+      .col-3.offset-3
+        - if readonly
+          = link_to 'Edit', edit_competitor_path(competitor),
+            class: 'btn btn-primary btn-block'
+        - else
+          = f.submit 'Save', class: 'btn btn-primary btn-block'
+      .col-3
+        = link_to 'Cancel', group_path(competitor.group),
+                  class: 'btn btn-secondary btn-block'

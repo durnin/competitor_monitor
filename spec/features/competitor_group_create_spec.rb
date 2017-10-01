@@ -5,15 +5,14 @@ require 'rails_helper'
 feature "Create a group of competitor's products" do
 
   def add_competitor(name, link, asin)
-    click_button 'Add Competitor'
+    click_link 'Add Competitor'
     within('#new_competitor') do
       fill_in 'Name', with: name
       fill_in 'Link', with: link if link
-      fill_in 'Product ASIN', with: asin if asin
+      fill_in 'Product asin', with: asin if asin
     end
-    click_button 'Create Competitor'
-    expect(page).to have_content "Competitor #{competitor1[:name]}"\
-                                 'successfully added'
+    click_button 'Save'
+    expect(page).to have_content "Competitor #{name} successfully added"
   end
 
   given(:group_name) { Faker::Company.name }
