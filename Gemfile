@@ -42,6 +42,8 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Validation of URI type fields
+gem 'validate_url'
 
 group :development do
   # Detect N+1

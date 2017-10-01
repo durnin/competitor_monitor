@@ -5,6 +5,12 @@ class Group < ApplicationRecord
   # CONSTANTS
   MAX_NUMBER_OF_GROUPS = 10
 
+  # ATTRIBUTES
+  # name
+
+  # ASSOCIATIONS
+  has_many :competitors, inverse_of: :group
+
   # VALIDATIONS
   validate :max_number_of_records, on: :create
 

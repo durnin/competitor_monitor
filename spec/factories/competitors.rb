@@ -12,5 +12,9 @@ FactoryGirl.define do
     trait :with_asin do
       product_asin Faker::Code.asin
     end
+
+    factory :competitor_valid do
+      link Faker::Internet.url
+    end
   end
 end

@@ -25,10 +25,5 @@ RSpec.describe Group, type: :model do
     end
   end
 
-  describe 'Associations' do
-    it 'has many competitors' do
-      assoc = described_class.reflect_on_association(:competitors)
-      expect(assoc.macro).to eq :has_many
-    end
-  end
+  test_simple_association(:competitors, :has_many)
 end
