@@ -29,8 +29,8 @@ class CompetitorMonitorDecorator
              asin_to_link(@competitor.product_asin)
            end
     amazon_client.fetch(link)
-  rescue *AMAZON_ERRORS # => error
-    # TODO: log the error
+  rescue *AMAZON_ERRORS => error
+    Rails.logger.error(error.message)
     {}
   end
 end

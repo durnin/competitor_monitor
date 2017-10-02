@@ -52,8 +52,8 @@ module Amazon
       raise CommunicationError, 'Connection Timed Out'
     rescue Mechanize::ResponseCodeError
       raise ProductNotFoundError, 'Link provided for product returns 404'
-    rescue StandardError
-      # TODO: log exception
+    rescue StandardError => error
+      Rails.logger.error("Amazon::ParseError due to #{error.message}")
       raise ParseError, 'Some error occurred while parsing data'
     end
   end

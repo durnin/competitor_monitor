@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+$LOAD_PATH << '../lib'
+require 'amazon/exceptions'
 
 RSpec.describe CompetitorMonitorDecorator do
   context 'when extracts data from amazon' do
