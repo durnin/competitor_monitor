@@ -9,6 +9,14 @@ class Competitor < ApplicationRecord
   # name
   # link
   # product_asin
+  # price
+  # title
+  serialize :images, Array
+  # features
+  # number_of_reviews
+  # best_seller_rank
+  # inventory
+
 
   # ASSOCIATIONS
   belongs_to :group, inverse_of: :competitors

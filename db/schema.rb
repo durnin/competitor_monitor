@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929142859) do
+ActiveRecord::Schema.define(version: 20171002004546) do
 
   create_table "competitors", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20170929142859) do
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
+    t.string "title"
+    t.text "images"
+    t.text "features"
+    t.integer "number_of_reviews"
+    t.integer "best_seller_rank"
+    t.integer "inventory"
     t.index ["group_id"], name: "index_competitors_on_group_id"
   end
 

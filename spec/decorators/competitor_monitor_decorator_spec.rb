@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe CompetitorMonitorService do
+RSpec.describe CompetitorMonitorDecorator do
   context 'when extracts data from amazon' do
     let(:competitor) do
-      build(:competitor, link: 'https://www.amazon.com/dp/B00ZLJ1QGC')
+      create(:competitor, link: 'https://www.amazon.com/dp/B00ZLJ1QGC')
     end
 
     before do
@@ -19,7 +19,7 @@ RSpec.describe CompetitorMonitorService do
           best_seller_rank: 1010,
           inventory: 55
         )
-      CompetitorMonitorService.new(competitor).fetch_data
+      CompetitorMonitorDecorator.new(competitor).save
     end
 
     it 'records price in competitor' do
@@ -37,7 +37,7 @@ RSpec.describe CompetitorMonitorService do
     end
 
     it 'records features in competitor' do
-      expect(competitor.features).to eq('Some long text\nwith new lines'\
+      expect(competitor.features).to eq('Some long text\nwith new lines '\
                                         'in the middle')
     end
 
