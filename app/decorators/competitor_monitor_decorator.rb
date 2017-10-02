@@ -4,6 +4,12 @@
 class CompetitorMonitorDecorator
   include CompetitorHelper
 
+  AMAZON_ERRORS = [
+    Amazon::CommunicationError,
+    Amazon::ProductNotFoundError,
+    Amazon::ParseError
+  ].freeze
+
   def initialize(competitor)
     @competitor = competitor
   end
@@ -23,5 +29,8 @@ class CompetitorMonitorDecorator
              asin_to_link(@competitor.product_asin)
            end
     amazon_client.fetch(link)
+  rescue *AMAZON_ERRORS # => error
+    # TODO: log the error
+    {}
   end
 end
