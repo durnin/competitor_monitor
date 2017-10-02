@@ -13,6 +13,8 @@ class CompetitorMonitorDecorator
     @competitor.update_attributes(scraped_data)
   end
 
+  private
+
   def fetch_data
     amazon_client = Amazon::Scraper.new
     link = if @competitor.link?

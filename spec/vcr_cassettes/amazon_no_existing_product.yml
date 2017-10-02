@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.amazon.com/dp/B001234567
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:43.0) Gecko/20100101 Firefox/43.0
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - www.amazon.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - Server
+      Date:
+      - Mon, 02 Oct 2017 18:52:33 GMT
+      Strict-Transport-Security:
+      - max-age=47474747; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding,User-Agent
+      P3p:
+      - policyref="https://www.amazon.com/w3c/p3p.xml",CP="CAO DSP LAW CUR ADM IVAo
+        IVDo CONo OTPo OUR DELi PUBi OTRi BUS PHY ONL UNI PUR FIN COM NAV INT DEM
+        CNT STA HEA PRE LOC GOV OTC "
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Content-Encoding:
+      - gzip
+      Set-Cookie:
+      - session-id-time=2082787201l; Domain=.amazon.com; Expires=Tue, 01-Jan-2036
+        08:00:01 GMT; Path=/
+      - session-id=142-8584556-2883038; Domain=.amazon.com; Expires=Tue, 01-Jan-2036
+        08:00:01 GMT; Path=/
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 86e9abdb4c15b9d3a542f9b93245e87e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - k8tyT1pO5bzvsj4LUQc5ULa9K85marZPKIR3sARZ2r33j98-DTgb9Q==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKRV227bOBB9369gZXQRbyJLjpOi0cXYLdoN9mGLAg2wD0URUORI4poiuSTl2BXy7zu6+NLmsQ+mNdTMmcMzM1T2imvm9wZI7Ru5zqYVKF9nDXhKWE2tA58HrS/Dt8G0W3tvQvivFds82IUtDZluDPWikBAQppUHhSECcuAVHIIUbSAPtgKejLb+zO9JcF/nHLaCQTgYV0Qo4QWVoWNUQr68Iq62Qm1Cr8NS+FxpRPXCS1j/0dBvWi2QAflEKyAftSd/6lbxLBodMuf3+Ncf7arQfN8ZyrlQVRKnDbWVUEn8LJqqK7TlYNGY0a6gbFPZHiWZXa+uyxWkh6jl0uzI2XJ3bXbPs6Iz2iFlrRJaOC1bD6mE0ifX+Dr12iTLwY+d/CxIlGwLyGI3Hjt5G8fofeRHbtAkMUFKcDUruxpEVftkdYtOB7ZpiTKGTnyDZAkNOnYj1DKOXx/Pdwa5jI/BoaVctC65GZOQm55g2bHWOm0TowXWx6bnUpRQ8Dd3Y8qnkUyhJf8Bb0AafnGKbsVG+JAaA9RSxSBRWqGaL9TqNYpTO4B+R7jX7fcGuKAXJ6Vue6XmHZbq4Hl721cjnpa+IoP+b/D5eVZ1HnbIQopKJQyGg03irAaN0YX0TXDKcBe/fp7xjgtnJN0PrNH+4iz7etwUSgrczqKxxbJonJy+y9YZjomFMg8ibFWEJoLnQREQBMiDfoBcEkWiwZZ1oaIL52Q4WfTY0dP76D6KlxFYq20kdaUXjw8P7x8XRlUBoRIn6DQDmCui66zUthkSUvRgDIwPf5hk3O71R3ouIDiftUbv+w8PAbEaJy5wWC5WIxwX2wGJ9cdQpvWDhXM+znMpQPJwA/sn7AGEQl0Y1NgUYPPg8wHkFFgGpL9vMEFbNAKvgS2VLZr3/URHmAzXnv0pcTWSeCnoTyo53A4vpPysrd2/Iv8A3k+t5OrX2eou9aQUihNfU08M4izIg92TUSLsPaItqTTxmoyFGGIcqXUDo/tUlej7Y3BdOV2OHFEVbMe+PI+FpGpz1jN8YvYe3YkupxwTpGNWGL/GW7xtsK0XCPFBQv/4bv8Xv8Dg+eIndQouL/6mvl6UUms7PuIgc91czH+7Wc0vl/PLYJLxX1MFKU7DSOpQznEcouHb8sv/AAAA//+yUdTVVSgusAKbHQ8KnWIFXV07AAAAAP//AwCOKmyHiQYAAA==
+    http_version: 
+  recorded_at: Mon, 02 Oct 2017 18:52:34 GMT
+recorded_with: VCR 3.0.3

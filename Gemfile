@@ -23,6 +23,8 @@ gem 'haml-rails', '~> 1.0'
 gem 'jbuilder', '~> 2.5'
 # JQuery to use with bootstrap
 gem 'jquery-rails'
+# Mechanize to scrape the web with cookies
+gem 'mechanize'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
