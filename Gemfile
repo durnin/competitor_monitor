@@ -91,7 +91,7 @@ group :test do
   # Code coverage
   gem 'simplecov', '~> 0.15.0', require: false
   # Record http calls for testing
-  # gem 'vcr', '~> 3.0', '>= 3.0.3'
+  gem 'vcr', '~> 3.0', '>= 3.0.3'
   # Testing mocks
   gem 'webmock', '~> 3.0', '>= 3.0.1', require: false
 end
