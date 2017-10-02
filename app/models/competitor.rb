@@ -9,7 +9,8 @@ class Competitor < ApplicationRecord
   # name
   # link
   # product_asin
-  # price
+  # price_low
+  # price_high
   # title
   serialize :images, Array
   # features

@@ -11,7 +11,8 @@ RSpec.describe CompetitorMonitorDecorator do
     before do
       allow_any_instance_of(Amazon::Scraper).to receive(:fetch)
         .with(competitor.link).and_return(
-          price: 110.5,
+          price_low: 110.5,
+          price_high: 210.5,
           title: 'Some Title',
           images: %w[http://image-link1.jpg http://image-link2.jpg],
           features: 'Some long text\nwith new lines in the middle',
@@ -23,7 +24,8 @@ RSpec.describe CompetitorMonitorDecorator do
     end
 
     it 'records price in competitor' do
-      expect(competitor.price).to eq(110.5)
+      expect(competitor.price_low).to eq(110.5)
+      expect(competitor.price_high).to eq(210.5)
     end
 
     it 'records title in competitor' do
