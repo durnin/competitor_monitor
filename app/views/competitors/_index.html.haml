@@ -10,6 +10,7 @@
       %th Name
       %th Link
       %th ASIN
+      %th.float-right
     - group.competitors.each do |competitor|
       %tr
         %td
@@ -21,3 +22,7 @@
           - if competitor.product_asin
             = link_to truncate(competitor.product_asin, length: 20),
                     asin_to_link(competitor.product_asin)
+        %td.float-right
+          = link_to competitor, method: :delete,
+              alt: "Delete #{competitor.name}" do
+            = fa_icon 'times 2x'

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :groups do
     resources :competitors, only: %i[new]
   end
-  resources :competitors, only: %i[show create edit]
+  resources :competitors, only: %i[show create edit update destroy]
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'

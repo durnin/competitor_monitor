@@ -3,7 +3,7 @@
 # Controller for Competitors
 class CompetitorsController < ApplicationController
   before_action :set_group, only: %i[new]
-  before_action :set_competitor, only: %i[show edit]
+  before_action :set_competitor, only: %i[show edit update destroy]
 
   def show; end
 
@@ -28,28 +28,24 @@ class CompetitorsController < ApplicationController
     end
   end
 
-  # def update
-  #   respond_to do |format|
-  #     if @competitor.update(competitor_params)
-  #       format.html { redirect_to @competitor,
-  #                     notice: 'Competitor was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @competitor }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @competitor.errors,
-  #                            status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
-  # def destroy
-  #   @competitor.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to competitors_url,
-  #                   notice: 'Competitor was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def update
+    if @competitor.update(competitor_params)
+      flash[:notice] = "Competitor #{@competitor.name} successfully updated."
+      redirect_to @competitor
+    else
+      flash[:error] = 'There were some errors while trying to update the '\
+        'competitor.'
+      render :edit
+    end
+  end
+
+  def destroy
+    name = @competitor.name
+    group_id = @competitor.group_id
+    @competitor.destroy
+    flash[:notice] = "Competitor #{name} successfully deleted."
+    redirect_to group_url(group_id)
+  end
 
   private
 
