@@ -48,6 +48,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 # Validation of URI type fields
 gem 'validate_url'
+# for crontab integration
+gem 'whenever', :require => false
 
 group :development do
   # Detect N+1
