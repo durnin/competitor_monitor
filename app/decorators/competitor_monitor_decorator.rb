@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+$LOAD_PATH << '../lib'
+require 'amazon/exceptions'
+
 # Decorator class to record competitor data from Amazon
 class CompetitorMonitorDecorator
   include CompetitorHelper
