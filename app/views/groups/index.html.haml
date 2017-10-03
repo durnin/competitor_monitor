@@ -7,7 +7,12 @@
   %tbody
     %tr
       %th Name
+      %th.float-right
     - @groups.each do |group|
       %tr
         %td
           = link_to group.name, group_path(group)
+        %td.float-right
+          = link_to group, method: :delete,
+              alt: "Delete #{group.name}" do
+            = fa_icon 'times 2x'

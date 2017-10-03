@@ -1,8 +1,10 @@
 - content_for :alert_messages do
   = alert_messages(flash, @group)
+- title_class = @group.id ? 'col offset-1' : 'col offset-3'
+- data_class = @group.id ? 'col-10 offset-1' : 'col-6 offset-3'
 .row
-  .col.offset-3
+  %div{ class: title_class }
     %h2 Group of Competitors
 .row.mt-3
-  .col-6.offset-3
+  %div{ class: data_class }
     = render 'form', group: @group, readonly: false

@@ -9,7 +9,7 @@ class Group < ApplicationRecord
   # name
 
   # ASSOCIATIONS
-  has_many :competitors, inverse_of: :group
+  has_many :competitors, inverse_of: :group, dependent: :destroy
 
   # VALIDATIONS
   validate :max_number_of_records, on: :create

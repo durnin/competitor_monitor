@@ -23,7 +23,7 @@ feature "Create a group of competitor's products" do
     { name: Faker::Commerce.product_name, asin: Faker::Code.asin }
   end
 
-  scenario 'creates a group with competitors' do
+  scenario 'creates a group with competitors, updates it and deletes it' do
     visit groups_path
     click_link 'New Group'
     within('#new_group') do
@@ -34,5 +34,14 @@ feature "Create a group of competitor's products" do
     click_link group_name # link to show the group
     add_competitor(competitor1[:name], competitor1[:link], nil)
     add_competitor(competitor2[:name], nil, competitor2[:asin])
+    click_link 'Edit'
+    within('#edit_group_1') do
+      fill_in 'Name', with: "#{group_name} 2"
+    end
+    click_button 'Save'
+    expect(page).to have_content "Group #{group_name} 2 successfully updated"
+    click_link 'Cancel'
+    find("a[alt=\"Delete #{group_name} 2\"]").click
+    expect(page).to have_content "Group #{group_name} 2 successfully deleted"
   end
 end

@@ -153,12 +153,13 @@ module Amazon
 
     def reviews
       { number_of_reviews: @page.search(SELECTOR_REVIEWS)
-                                .text.gsub(',', '').to_i }
+                                .text.delete(',').to_i }
     end
 
     def seller_rank
-      if @page.search(SELECTOR_SELLER_RANK).any?
-        { best_seller_rank: @page.search(SELECTOR_SELLER_RANK).text.rank_to_i }
+      seller_rank_elem = @page.search(SELECTOR_SELLER_RANK)
+      if seller_rank_elem.any?
+        { best_seller_rank: seller_rank_elem.text.rank_to_i }
       else
         {}
       end

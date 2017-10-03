@@ -2,7 +2,7 @@
 
 # Controller for Groups of Competitors
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit]
+  before_action :set_group, only: %i[show edit update destroy]
 
   def show; end
 
@@ -29,6 +29,24 @@ class GroupsController < ApplicationController
         'group.'
       render :new
     end
+  end
+
+  def update
+    if @group.update(group_params)
+      flash[:notice] = "Group #{@group.name} successfully updated."
+      redirect_to @group
+    else
+      flash[:error] = 'There were some errors while trying to update the '\
+        'group.'
+      render :edit
+    end
+  end
+
+  def destroy
+    name = @group.name
+    @group.destroy
+    flash[:notice] = "Group #{name} successfully deleted."
+    redirect_to groups_url
   end
 
   private

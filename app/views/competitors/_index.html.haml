@@ -15,7 +15,9 @@
         %td
           = link_to competitor.name, competitor_path(competitor)
         %td
-          = link_to truncate(competitor.link, length: 20), competitor.link
+          - if competitor.link
+            = link_to truncate(competitor.link, length: 40), competitor.link
         %td
-          = link_to truncate(competitor.product_asin, length: 20),
+          - if competitor.product_asin
+            = link_to truncate(competitor.product_asin, length: 20),
                     asin_to_link(competitor.product_asin)
