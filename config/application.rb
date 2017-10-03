@@ -21,5 +21,6 @@ module CompetitorMonitor
     # -- all .rb files in that directory are automatically loaded.
     config.eager_load_paths << Rails.root.join('lib')
     # config.cache_store = :memory_store, { size: 64.megabytes }
+    config.active_job.queue_adapter = :sidekiq
   end
 end
