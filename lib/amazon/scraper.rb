@@ -96,6 +96,15 @@ module Amazon
 
   # Product detail page scraper
   class ProductPageScraper
+    SELECTOR_PRICE = 'span#priceblock_ourprice'.freeze
+    SELECTOR_TITLE = 'span#productTitle'.freeze
+    SELECTOR_IMAGES = 'div#altImages li.a-spacing-small.item img'.freeze
+    SELECTOR_FEATURES =
+      'div#feature-bullets li:not(#replacementPartsFitmentBullet)'\
+      ' span.a-list-item'.freeze
+    SELECTOR_REVIEWS = 'span#acrCustomerReviewText'.freeze
+    SELECTOR_SELLER_RANK = 'div#detail-bullets li#SalesRank'.freeze
+
     def initialize(page)
       @page = page
     end
@@ -112,37 +121,31 @@ module Amazon
     private
 
     def price
-      price_array = @page.search('span#priceblock_ourprice').text
-                         .currency_to_array_price
+      price_array = @page.search(SELECTOR_PRICE).text.currency_to_array_price
       price_low = price_array[0]
       price_high = price_array.size > 1 ? price_array[1] : price_low
       { price_low: price_low, price_high: price_high }
     end
 
     def title
-      { title: @page.search('span#productTitle').text.remove_html_spaces }
+      { title: @page.search(SELECTOR_TITLE).text.remove_html_spaces }
     end
 
     def images
-      { images: @page.search('div#altImages li.a-spacing-small.item img')
-                     .map { |img| img.attr('src') } }
+      { images: @page.search(SELECTOR_IMAGES).map { |img| img.attr('src') } }
     end
 
     def features
-      { features: @page.search(
-        'div#feature-bullets li:not(#replacementPartsFitmentBullet) '\
-        'span.a-list-item'
-      ).map { |feature| feature.text.remove_html_spaces }.join("\n") }
+      { features: @page.search(SELECTOR_FEATURES)
+        .map { |feature| feature.text.remove_html_spaces }.join("\n") }
     end
 
     def reviews
-      { number_of_reviews: @page.search('span#acrCustomerReviewText')
-                                .text.to_i }
+      { number_of_reviews: @page.search(SELECTOR_REVIEWS).text.to_i }
     end
 
     def seller_rank
-      { best_seller_rank: @page.search('div#detail-bullets li#SalesRank')
-                               .text.rank_to_i }
+      { best_seller_rank: @page.search(SELECTOR_SELLER_RANK).text.rank_to_i }
     end
   end
 end
