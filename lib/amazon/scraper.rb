@@ -104,14 +104,17 @@ module Amazon
 
   # Product detail page scraper
   class ProductPageScraper
-    SELECTOR_PRICE = 'span#priceblock_ourprice'
+    SELECTOR_PRICE = 'span#priceblock_ourprice, span#priceblock_saleprice, '\
+                     'span#priceblock_dealprice'
     SELECTOR_TITLE = 'span#productTitle'
     SELECTOR_IMAGES = 'div#altImages li.a-spacing-small.item img'
     SELECTOR_FEATURES =
       'div#feature-bullets li:not(#replacementPartsFitmentBullet)'\
       ' span.a-list-item'
     SELECTOR_REVIEWS = 'span#acrCustomerReviewText'
-    SELECTOR_SELLER_RANK = 'div#detail-bullets li#SalesRank'
+    SELECTOR_SELLER_RANK =
+      'div#detail-bullets li#SalesRank, table#productDetails_'\
+      'detailBullets_sections1 tr>td>span>span:first-child'
 
     def initialize(page)
       @page = page
@@ -149,11 +152,16 @@ module Amazon
     end
 
     def reviews
-      { number_of_reviews: @page.search(SELECTOR_REVIEWS).text.to_i }
+      { number_of_reviews: @page.search(SELECTOR_REVIEWS)
+                                .text.gsub(',', '').to_i }
     end
 
     def seller_rank
-      { best_seller_rank: @page.search(SELECTOR_SELLER_RANK).text.rank_to_i }
+      if @page.search(SELECTOR_SELLER_RANK).any?
+        { best_seller_rank: @page.search(SELECTOR_SELLER_RANK).text.rank_to_i }
+      else
+        {}
+      end
     end
   end
 end
