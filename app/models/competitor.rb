@@ -2,6 +2,8 @@
 
 # Competitors model
 class Competitor < ApplicationRecord
+  has_paper_trail skip: %i[name link product_asin]
+
   # CONSTANTS
   MAX_NUMBER_OF_COMPETITORS = 8
 

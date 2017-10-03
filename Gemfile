@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # Mechanize to scrape the web with cookies
 gem 'mechanize'
+# for storing versions on activerecord instances
+gem 'paper_trail'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

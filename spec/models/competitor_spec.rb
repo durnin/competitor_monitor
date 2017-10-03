@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Competitor, type: :model do
+RSpec.describe Competitor, type: :model, paper_trail: true do
   describe 'Validations' do
     def self.test_format_attribute(att_name, att_trait, att_invalid_val)
       context "when record has #{att_name}" do
@@ -57,4 +57,35 @@ RSpec.describe Competitor, type: :model do
   end
 
   test_simple_association(:group, :belongs_to)
+
+  it { is_expected.to be_versioned }
+
+  context 'when updating to check versioning', versioning: true do
+    subject { create(:competitor, :with_asin) }
+    before do
+      subject.update_attributes!(name: 'Competitor 1',
+                                 product_asin: 'B012321355')
+      subject.update_attributes!(price_low: 1.0, price_high: 10.0)
+      subject.update_attributes!(title: 'Some Title',
+                                 features: 'Some features')
+      subject.update_attributes!(number_of_reviews: 20,
+                                 best_seller_rank: 100,
+                                 inventory: 50)
+      subject.update_attributes!(images: %w[image1 image2])
+    end
+
+    it { is_expected.to_not have_a_version_with_changes(name: 'Competitor 1') }
+    it do
+      is_expected.to_not have_a_version_with_changes(
+        product_asin: 'B012321355'
+      )
+    end
+    it { is_expected.to have_a_version_with_changes title: 'Some Title' }
+    it { is_expected.to have_a_version_with_changes features: 'Some features' }
+    it do
+      is_expected.to have_a_version_with_changes(
+        number_of_reviews: 20, best_seller_rank: 100, inventory: 50
+      )
+    end
+  end
 end
