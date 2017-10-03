@@ -143,12 +143,16 @@ module Amazon
     end
 
     def images
-      { images: @page.search(SELECTOR_IMAGES).map { |img| img.attr('src') } }
+      { images: @page.search(SELECTOR_IMAGES)
+                     .map { |img| img.attr('src') }
+                     .sort }
     end
 
     def features
       { features: @page.search(SELECTOR_FEATURES)
-        .map { |feature| feature.text.remove_html_spaces }.join("\n") }
+                       .map do |feature|
+                         feature.text.remove_html_spaces
+                       end.sort.join("\n") }
     end
 
     def reviews

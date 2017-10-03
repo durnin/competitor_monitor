@@ -17,8 +17,8 @@ module Amazon
                 'https://images-na.ssl-images-amazon.com/images/I/'\
                 '31atFOoU%2BuL._SS40_.jpg'
               ],
-              features: "Durable aluminum alloy\nThin 31/32 inch\n"\
-                        'Bbcor certified',
+              features: "Bbcor certified\nDurable aluminum alloy\n"\
+                        'Thin 31/32 inch',
               number_of_reviews: 32,
               best_seller_rank: 160_836,
               inventory: 166
@@ -51,10 +51,10 @@ module Amazon
                             'https://www.amazon.com/dp/B00ZLJ1NCY',
                             price_low: 64.21,
                             price_high: 99.99,
-                            features: "Durable aluminum alloy\nThin 31/32\" "\
-                            "tapered handle with pro tack grip\n2-5/8\" "\
-                            "Barrel Diameter\n-3 Weight Differential\nBBCOR "\
-                            'Certified',
+                            features: "-3 Weight Differential\n2-5/8\" Barrel"\
+                            " Diameter\nBBCOR Certified\nDurable aluminum "\
+                            "alloy\nThin 31/32\" tapered handle with "\
+                            'pro tack grip',
                             best_seller_rank: 163_218,
                             inventory: nil)
 
