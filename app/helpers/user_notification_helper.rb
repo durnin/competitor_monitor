@@ -19,7 +19,7 @@ module UserNotificationHelper
     elsif att.is_a?(Array)
       simple_format(att.join("\n"))
     else
-      att
+      simple_format(att.to_s)
     end
   end
 end

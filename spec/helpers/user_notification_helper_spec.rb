@@ -62,7 +62,7 @@ RSpec.describe UserNotificationHelper, type: :helper do
     end
 
     it 'displays html for numbers correctly' do
-      expect(helper.attribute_to_html(1.0)).to eq(1.0)
+      expect(helper.attribute_to_html(1.0)).to eq('<p>1.0</p>')
     end
   end
 end

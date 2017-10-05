@@ -2,13 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe GroupNotificationPresenter do
-  let(:competitor) { create(:competitor, :with_link) }
-  let(:group) { competitor.group }
-  subject { GroupNotificationPresenter.new(group) }
-
+RSpec.describe GroupNotificationPresenter, paper_trail: true do
   describe '#latest_data' do
-    context 'when first extraction from amazon is made' do
+    context 'when first extraction from amazon is made', versioning: true do
+      let(:competitor) { create(:competitor, :with_link) }
+      let(:group) { competitor.group }
+      subject { GroupNotificationPresenter.new(group) }
+
       before do
         # Simulate first extraction from amazon
         competitor.update_attributes(
@@ -45,9 +45,9 @@ RSpec.describe GroupNotificationPresenter do
         expect(subject.latest_data).to match(result_hash)
       end
 
-      context 'when second extraction from amazon is made' do
+      context 'when second extraction from amazon is made', versioning: true do
         before do
-          # Simulate first extraction from amazon
+          # Simulate second extraction from amazon
           competitor.update_attributes(
             price_low: 2.0,
             price_high: 3.0,
