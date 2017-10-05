@@ -18,7 +18,9 @@ class CompetitorMonitorDecorator
   end
 
   def save
-    scraped_data = fetch_data
+    scraped_data = fetch_data.merge(updated_at: Time.now)
+    # Ensure that no matter what competitor gets updated
+    # so that it generates a new version
     @competitor.update_attributes(scraped_data)
   end
 
