@@ -1,0 +1,11 @@
+%p= 'Some changes were detected in your groups'
+- @data.each do |group|
+  %h2 Group '#{group[:name]}':
+  - group[:competitors].each do |competitor|
+    %h3 Competitor '#{competitor[:name]}':
+    - competitor[:changes].each do |att, val|
+      %p
+        %strong #{att.humanize}:
+      = attribute_to_html(val[0])
+      %p= '======>'
+      = attribute_to_html(val[1])

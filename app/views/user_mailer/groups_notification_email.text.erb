@@ -1,0 +1,21 @@
+Some changes were detected in your groups
+<% @data.each do |group| %>
+
+<%= '*' * (group[:name].length + 13) %>
+* Group '<%= group[:name] %>': *
+<%= '*' * (group[:name].length + 13) %>
+  <% group[:competitors].each do |competitor| %>
+
+Competitor '<%= competitor[:name]%>':
+<%= '=' * (competitor[:name].length + 14) %>
+    <% competitor[:changes].each do |att, val| %>
+
+<%= att.humanize %>:
+<%= '-' * (att.length + 1) %>
+
+<%= val[0] %>
+=====>
+<%= val[1] %>
+    <% end %>
+  <% end %>
+<% end %>
