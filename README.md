@@ -13,29 +13,29 @@ check that it works
 * [Install RVM](https://rvm.io/rvm/install)
 * Install Ruby 2.4.0
 
-    rvm install 2.4.0
+      rvm install 2.4.0
 
 * Install Bundler
 
-    rvm gemset use global
-    gem install bundler
+      rvm gemset use global
+      gem install bundler
 
 * Clone repository to local machine
 
-    git clone https://github.com/durnin/competitor_monitor.git
+      git clone https://github.com/durnin/competitor_monitor.git
 
 * Install application dependencies
 
-    cd competitor_monitor # should create new gemset in rvm
-    bundle install
+      cd competitor_monitor # should create new gemset in rvm
+      bundle install
 
 * Create DB with seed data
 
-    rake db:setup
+      rake db:setup
 
 * Add to crontab the application background jobs with:
 
-    whenever --update-crontab
+      whenever --update-crontab
 
 ## Running the application
 
@@ -47,7 +47,7 @@ You'll also need to run sidekiq on a different terminal:
 
     sidekiq -q default -q mailers
 
-You can now access application at[http://localhost:3000](http://localhost:3000)
+You can now access application at [http://localhost:3000](http://localhost:3000)
 
 ## Dev Tools
 
