@@ -24,6 +24,10 @@
 set :output, { :error => "#{path}/log/cron/error.log",
                :standard => "#{path}/log/cron/standard.log" }
 
-every :day, :at => '2am' do
+every :day, at: '2am' do
   rake 'amazon:scrape_groups'
+end
+
+every :day, at: '5am' do
+  rake 'rake notifications:user_latest_changes'
 end
