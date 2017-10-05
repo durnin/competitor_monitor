@@ -64,7 +64,8 @@ group :development do
   gem 'guard-reek', require: false
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
-
+  # for not sending emails in development
+  gem 'letter_opener_web'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Pronto for code review
   gem 'pronto', git: 'https://github.com/pettomartino/pronto.git',
