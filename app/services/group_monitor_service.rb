@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Decorator class to record competitor data from Amazon
+# Service class to fetch all group data from Amazon
 class GroupMonitorService
   def initialize(group)
     @group = group
